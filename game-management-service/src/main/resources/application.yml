@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: "default"
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gms
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  kafka:
+    bootstrap-servers: "127.0.0.1:9092"

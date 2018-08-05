@@ -1,0 +1,1 @@
+INSERT INTO data.game (uuid, player_uuids, start_number) VALUES ('90047dfa-9a69-4d30-9704-e888b3fd51ff', ARRAY['22bec6bb-880c-492d-80d6-45411460ed6f'::UUID, 'a10da818-6c54-4b91-9271-a16da1eac539'::UUID], 56);

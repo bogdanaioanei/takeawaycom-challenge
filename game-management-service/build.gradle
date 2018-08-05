@@ -1,0 +1,53 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.takeaway'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+dependencies {
+    //Validation
+    compile('org.springframework.boot:spring-boot-starter-validation')
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.11.Final'
+
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compileOnly('org.projectlombok:lombok')
+
+    //Kafka
+    compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '2.1.8.RELEASE'
+
+    // Database
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.4'
+    compile group: 'hikari-cp', name: 'hikari-cp', version: '2.6.0'
+    compile('org.springframework.boot:spring-boot-starter-jooq')
+    compile group: 'org.flywaydb', name: 'flyway-core', version: '5.1.4'
+
+    //Guava
+    compile group: 'com.google.guava', name: 'guava', version: '25.1-jre'
+
+    //Test
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    testCompile group: 'com.opentable.components', name: 'otj-pg-embedded', version: '0.12.0'
+
+    testCompile group: 'org.springframework.kafka', name: 'spring-kafka-test', version: '2.1.8.RELEASE'
+}
